@@ -3,8 +3,13 @@ class SearchBar extends Component {
   state = { term: "" };
 
   setTerm = (e) => {
-    e.preventDefault();
+    console.log(e.target.value);
     this.setState({ term: e.target.value });
+  };
+
+  onFormSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.term);
   };
   render() {
     return (
